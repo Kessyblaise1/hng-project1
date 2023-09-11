@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Excel's Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="img">
+        <img
+          data-testid="slackDisplayImage"
+          src="https://ca.slack-edge.com/T05FFAA91JP-U05SB0Z00JC-0550c98ef6d1-512"
+          alt="excelnango@gmailcom, Excel Bill"
+        />
+      </div>
+      <div class="infos">
+        <div class="name">
+          <h2 data-testid="slackUserName">Excel Bill</h2>
+        </div>
+        <p class="text">
+          Day of the week:
+          <b data-testid="currentDayOfTheWeek" style="padding-left: 10px" id="daysOfWeek"></b>
+        </p>
+        <p class="text">
+          Current Time:
+          <b data-testid="currentUTCTime" style="padding-left: 10px" id="currentTime"></b>
+        </p>
+        <ul class="stats">
+          <li>
+            <p style="padding-right: 10px;">Track:</p>
+            <h3 data-testid="myTrack">Frontend</h3>
+          </li>
+        </ul>
+        <div class="links">
+          <a data-testid="“githubURL”" href="https://github.com/kessyblaise1" class="follow"
+            >Source  Code</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const daysOfWeekDisplay = document.querySelector("#daysOfWeek");
+      const currentTimeDisplay = document.querySelector("#currentTime");
+
+      function displayTimeAndDay() {
+        const currentDate = new Date();
+
+        const currentTimeMillis = currentDate.getTime();
+
+        const daysOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const currentDayOfWeek = daysOfWeek[currentDate.getDay()];
+
+        daysOfWeekDisplay.textContent = currentDayOfWeek;
+        currentTimeDisplay.textContent = currentTimeMillis;
+      }
+
+      displayTimeAndDay();
+    </script>
+  </body>
+</html>
